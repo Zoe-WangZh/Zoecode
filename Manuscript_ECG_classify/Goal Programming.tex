@@ -1,0 +1,159 @@
+\documentclass[aps,pra,twocolumn,showpacs,superscriptaddress,groupedaddress]{revtex4}  % for review and submission
+%\documentclass[aps,preprint,showpacs,superscriptaddress,groupedaddress]{revtex4}  % for double-spaced preprint
+\usepackage{graphicx}  % needed for figures
+\usepackage{dcolumn}   % needed for some tables
+\usepackage{bm}        % for math
+\usepackage{amssymb}
+
+\hyphenation{ALPGEN}
+\hyphenation{EVTGEN}
+\hyphenation{PYTHIA}
+
+
+\newcommand{\Del}{\nabla}
+\newcommand{\ex}[1]{\langle #1 \rangle}
+\newcommand{\exx}[1]{\langle \langle #1 \rangle\rangle}
+\newcommand{\rABgoes}{\stackrel{{\textstyle \longrightarrow}}{{\scriptstyle
+r_{AB} \rightarrow \infty}}}
+\newcommand{\ggoes}{\stackrel{{\textstyle \longrightarrow}}{{\scriptstyle g
+\rightarrow \infty}}}
+\newcommand{\arccosh}{\text{ arccosh}}
+
+\newcommand{\ket}[1]{| #1 \rangle}
+\newcommand{\bra}[1]{\langle #1 |}
+\newcommand{\rb}[1]{\left( #1 \right)}
+\newcommand{\mb}[1]{\mathbf{#1}}
+\newcommand{\ew}[1]{\langle #1 \rangle}
+\newcommand{\beq}{\begin{eqnarray}}
+\newcommand{\eeq}{\end{eqnarray}}
+\newcommand{\blg}[1]{\mathrm{lg}\left[  #1right]}
+\newcommand{\svec}{\mbox{\boldmath$\sigma$}}
+\newcommand{\op}[2]{| #1 \rangle \langle #2 |}
+\newcommand{\sech}{\mathrm{sech}}
+\newcommand{\sfrac}[2]{\begin{array}{c}\frac{#1}{#2}\end{array}}
+\newcommand{\cum}[1]{\langle\langle #1 \rangle \rangle}
+\newcommand{\eq}[1]{Eq.~(\ref{#1})}
+\newcommand{\fig}[1]{Fig.~\ref{#1}}
+\newcommand{\ul}[1]{{\underline{#1}}}
+\begin{document}
+
+
+\title{Quantitative characterization of multiobjective via
+ goal programming}
+
+\author{Lijuan Zheng}
+\address{
+South China University of Technology, Guangzhou 510641, China}
+
+\date{\today}
+
+
+%\begin{abstract}
+%
+%\end{abstract}
+%\pacs{}
+ \maketitle
+
+
+
+\begin{figure}
+\setlength{\abovecaptionskip}{7pt}
+\includegraphics[width=1\columnwidth]{fig1}
+\caption{(Color online)  Density profile of the optimization function
+ $\mathcal{O}$ in the goal programming model for several
+ cases: (a) $\eta_1=\eta_2=1$ and $\Delta_C=\Delta_B=0.1$; (b)
+ $\eta_1=\eta_2=1$ and $\Delta_C=\Delta_B=0.2$; (c) $\eta_1=1,
+ \eta_2=0.5$ and $\Delta_C=\Delta_B=0.1$; (d) $\eta_1=0.5, \eta_2=1$ and
+ $\Delta_C=\Delta_B=0.1$.}
+\end{figure}
+
+The results in Section IV show a clear trade-off relation
+between the accuracy and the cost in ECG compression and transmission.
+Let us examine this relation via a sophisticated method, goal
+programming\,\cite{Goal}.
+We formulate our problem setting more specifically; let $\mathcal{C}$ be the cost and $\mathcal{A}$ be the accuracy.
+We overall consider the multiobjective optimization 
+ such that $\mathcal{C} \le \Delta_{C}$ and $\mathcal{A} \le \Delta_{A}$ for given
+(small) positive constants $\Delta_{C}$ and $\Delta_{A}$.
+The two parameters $\Delta_{C}$ and $\Delta_{A}$ are regarded as,
+respectively, admissible cost and permissible error.
+Thus, we can obtain a good measurement scenario to decrease the cost (i.e., minimize $\mathcal{C}$) while reducing the error (i.e.,
+minimizing $\mathcal{A}$).
+
+
+Goal programming \cite{Goal} provides an optimization method to deal
+with two (or more than two) conflicting objectives and it is widely used in
+mathematics, information theory and engineering.
+Instead of finding solutions which absolutely minimize or maximize
+objective functions,
+the task of goal programming is to find solutions that, if possible,
+satisfy a set of goals, or otherwise violate the goals minimally.
+This makes the approach more appealing to practical designers, compared
+to other optimization methods (e.g., linear programming models).
+Let us describe our measurement problem in terms of goal programming:
+\begin{eqnarray}
+&&
+{\rm Minimize}\quad
+\mathcal{O}\equiv \eta_{1}\delta_{1}^{+} + \eta_{2}\delta_{2}^{+},
+ \nonumber \\
+&&
+{\rm subject\,\,to}\,
+\left\{
+\begin{array}{l}
+\mathcal{C}(\vec{x})-\delta_{1}^{+}+\delta_{1}^{-} = \Delta_{C} \\
+\mathcal{A}(\vec{x})-\delta_{2}^{+}+\delta_{2}^{-} = \Delta_{A} \\
+\delta_{1}^{\pm},\delta_{2}^{\pm} \ge 0 
+%\\
+%\vec{x}=(t\Omega/2\pi, k\Omega) \in \mathcal{M}
+\end{array}
+\right. .
+\label{GP}
+\end{eqnarray}
+The weight factors $\eta_{1}$ and $\eta_{2}$ are given positive
+number, and represent the relative priority of objectives.
+If $\eta_{2} > \eta_{1}$, the condition for the
+error is prior to the one for the cost, and vice versa.
+The condition for the cost ($\mathcal{C}\le \Delta_{C}$) is reformulated by
+the relation
+\(
+\mathcal{C} +\delta_{1}^{+}-\delta_{1}^{-} = \Delta_{C}
+\), with the deviations between the admissible error and the actual
+value, $\delta_{1}^{+}$ and $\delta_{1}^{-}$.
+When $\mathcal{C} > \Delta_{C}$ ($\mathcal{C} \le \Delta_{C}$),
+we set $\delta_{1}^{+}=\mathcal{C}-\Delta_{C}$ and $\delta_{1}^{-}=0$
+($\delta_{1}^{+}=0$ and $\delta_{1}^{-}=\Delta_{C}-\mathcal{C}$).
+Similarly, we can set $\delta_{2}^{\pm}$ via
+$\mathcal{A}-\delta_{2}^{+}+\delta_{2}^{-}=\Delta_{A}$.
+The smaller $\mathcal{O}$, the better performance of the measurement scenario.
+The minimum value of $\mathcal{O}$ ($\mathcal{O}=0$) corresponds
+to the best solution.
+
+Figure 1 shows the contour profile of $\mathcal{O}$ for various cases,
+based on the cost $\mathcal{C}$ and overall error $\mathcal{A}$.
+In both Figs.\,1(a) and (b), the confidence and the backaction
+have equal importance ($\eta_1=\eta_2=1$).
+In Fig.1(a) we examine the case that $\Delta_{C}=0.1$ and
+$\Delta_{B}=0.1$.
+We find that the best solution ($\mathcal{O}=0$) appears in the dark
+blue area.
+If we relax the restriction to $\Delta_C=\Delta_B=0.2$, we find that
+more solutions for the optimization $\mathcal{O}=0$, as seen in Fig.\,1(b).
+We also examine the cases when the cost has a different importance, or weight,
+than the accuracy, as seen in Figs.\,1(c) and (d).
+The solution for the case where the cost is more important than the error ($\eta_1=1, \eta_2=0.5$) is given in Fig. 1(c). The solution for the opposite situation ($\eta_1=0.5, \eta_2=1$) is given in Fig. 1(d).
+In the above cases, we have considered a double-criterion goal
+programming problem and we find that it is convenient for discussing
+the trade-off relation between cost and error.
+
+
+
+\begin{thebibliography}{99}
+
+\bibitem{Goal}M. J. Schniederjans,
+\emph{Goal Programming: Methodology and Applications} (Kluwer, Boston, 1995).
+
+
+
+\end{thebibliography}
+
+\end{document}
